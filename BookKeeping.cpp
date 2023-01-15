@@ -277,7 +277,7 @@ void start(){
             if (registered){
                 system("cls");
                 cout << "User successfully created" << endl;
-                input == 1;
+                input = 1;
             } else {
                 system("cls");
                 cout << new_user + " already exists. Please try again" << endl;
