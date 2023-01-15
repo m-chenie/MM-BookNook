@@ -14,7 +14,7 @@ unordered_set<string> books;
 int lineInBookFile = 5;
 
 // getting all user and book IDs and storing them in an unordered set
-bool getAllUsersAndBooks(){
+void getAllUsersAndBooks(){
     
     fstream accounts;
     accounts.open("accounts.txt");
