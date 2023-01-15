@@ -7,12 +7,15 @@
 
 using namespace std;
 
+// note: all individual user and book files are saved using their username or book ID
+
 unordered_set<string> users;
 unordered_set<string> books;
 int lineInBookFile = 5;
 
+// getting all user and book IDs and storing them in an unordered set
 bool getAllUsersAndBooks(){
-
+    
     fstream accounts;
     accounts.open("accounts.txt");
     if (accounts.is_open()){
@@ -32,6 +35,7 @@ bool getAllUsersAndBooks(){
     }
 }
 
+// checking if username and password are correct for login
 bool login(string username_attempt, string password_attempt){
 
     string u, p;
@@ -48,6 +52,7 @@ bool login(string username_attempt, string password_attempt){
     }
 }
 
+// adds user to unordered set, accounts.txt and creates a user file which stores username and password
 bool register_user(string new_user, string new_pass){
         
     if (users.insert(new_user).second == true){ 
@@ -68,6 +73,7 @@ bool register_user(string new_user, string new_pass){
     
 }
 
+// gets book details: id, title, author name and number of copies
 void getBookDetails(string book_id){
     fstream bookfile;
     bookfile.open(book_id + ".txt");
@@ -105,6 +111,7 @@ void getBookDetails(string book_id){
     }
 }
 
+// adds book to books.txt and unordered set, create file to store details about the book
 bool addBook(string book_id, string title, string authorFirst, string authorLast, int copies){
     if (users.insert(book_id).second == true){ 
 
@@ -126,6 +133,7 @@ bool addBook(string book_id, string title, string authorFirst, string authorLast
     }
 }
 
+// edits book's txt file
 bool editBook(string book_id){
     cout << "Enter 1 to edit book title" << endl;
     cout << "Enter 2 to edit author's first name" << endl;
